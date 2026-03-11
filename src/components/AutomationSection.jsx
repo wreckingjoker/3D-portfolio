@@ -31,7 +31,12 @@ const PROJECTS = [
   },
 ];
 
-const TOOLS = ["n8n", "OpenAI API", "REST APIs", "Apify", "Google Sheets", "Webhooks", "Make", "Zapier"];
+const TOOLS = [
+  "n8n", "Claude API", "OpenAI API", "REST APIs",
+  "Webhooks", "API Config", "JSON / HTTP",
+  "Apify", "Google Sheets", "Google Drive",
+  "Gmail API", "WordPress REST",
+];
 
 // Simulated node flow — static representation of an n8n-style pipeline
 const NODES = [
@@ -84,6 +89,10 @@ export default function AutomationSection() {
         .auto-card:hover .card-id {
           color: #00F5FF !important;
         }
+        @media (max-width: 768px) {
+          .auto-cards-grid { grid-template-columns: 1fr !important; }
+          .auto-node-flow  { display: none !important; }
+        }
       `}</style>
 
       {/* Background grid */}
@@ -108,7 +117,7 @@ export default function AutomationSection() {
         </div>
 
         {/* ── Node flow diagram ── */}
-        <div style={{
+        <div className="auto-node-flow" style={{
           position: "relative",
           width: "100%",
           height: 140,
@@ -157,13 +166,13 @@ export default function AutomationSection() {
         </div>
 
         {/* ── Project cards grid ── */}
-        <div style={{
+        <div className="auto-cards-grid" style={{
           display: "grid",
           gridTemplateColumns: "repeat(2, 1fr)",
           gap: "1rem",
           marginBottom: "2.5rem",
         }}>
-          {PROJECTS.map((p, i) => (
+          {PROJECTS.map((p) => (
             <div
               key={p.id}
               className="auto-card"

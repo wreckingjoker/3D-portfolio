@@ -14,6 +14,12 @@ const STACK = [
 
 export default function ThreeDSection() {
   return (
+    <>
+    <style>{`
+      @media (max-width: 768px) {
+        .threed-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+      }
+    `}</style>
     <section
       data-mode="3d"
       style={{
@@ -44,7 +50,7 @@ export default function ThreeDSection() {
         </div>
 
         {/* Two columns */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }} className="grid-cols-1 md:grid-cols-2">
+        <div className="threed-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
 
           {/* Left — sample video */}
           <div style={{
@@ -107,5 +113,6 @@ export default function ThreeDSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }

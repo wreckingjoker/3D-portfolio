@@ -28,6 +28,11 @@ body {
   overflow-x: hidden;
 }
 
+/* ── Mobile: restore cursor, base resets ── */
+@media (hover: none), (max-width: 768px) {
+  body { cursor: auto; }
+}
+
 /* ── Section base ── */
 section {
   position: relative;

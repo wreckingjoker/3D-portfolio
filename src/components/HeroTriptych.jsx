@@ -108,6 +108,8 @@ export default function HeroTriptych() {
         @media (max-width: 768px) {
           .hero-panels { flex-direction: column !important; }
           .hero-panel  { flex: none !important; height: 33.33vh !important; }
+          .hero-subtitle { letter-spacing: 0.1em !important; font-size: 0.5rem !important; }
+          .hero-name { font-size: clamp(1.8rem, 9vw, 3rem) !important; }
         }
       `}</style>
 
@@ -261,7 +263,7 @@ export default function HeroTriptych() {
           zIndex: 30,
           pointerEvents: "none",
         }}>
-          <div style={{
+          <div className="hero-name" style={{
             display: "flex",
             fontSize: "clamp(2.4rem, 6.5vw, 6rem)",
             fontFamily: "var(--font-geist-sans), sans-serif",
@@ -286,7 +288,7 @@ export default function HeroTriptych() {
           animation: "fadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) 1.6s both",
           opacity: 0,
         }}>
-          <span style={{
+          <span className="hero-subtitle" style={{
             fontFamily: "monospace",
             fontSize: "clamp(0.55rem, 0.9vw, 0.72rem)",
             letterSpacing: "0.3em",

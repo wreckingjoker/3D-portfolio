@@ -6,7 +6,8 @@ import ClientLogoGroup from "./ClientLogoGroup";
 const TOOLS = [
   "HeyGen", "Higgsfield", "Grok", "Meta AI",
   "InVideo", "Google Veo", "Google Flow",
-  "Leonardo AI", "OpenArt AI", "Suno AI", "CapCut",
+  "Leonardo AI", "OpenArt AI", "Suno AI",
+  "Lovable", "Bolt", "Canva", "CapCut", "Claude Code",
 ];
 
 const REAL_VIDEOS = [
@@ -312,7 +313,7 @@ export default function VideoSection() {
           </div>
 
           <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.85rem", lineHeight: 1.8, maxWidth: 560, margin: 0 }}>
-            Full-cycle AI video production — concept, script, AI avatar, voice synthesis, visual generation, and post-production. Delivered for clients across real estate, F&amp;B, fashion, and tech.
+            End-to-end AI video production — creative concept development, script generation, AI avatar creation, voice synthesis, visual generation, and post-production editing. Delivered for clients across real estate, F&amp;B, fashion, and tech.
           </p>
         </div>
       </div>

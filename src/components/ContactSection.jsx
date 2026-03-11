@@ -3,11 +3,19 @@
 const LINKS = [
   { label: "EMAIL", value: "shonvarghesevenad@gmail.com", href: "mailto:shonvarghesevenad@gmail.com" },
   { label: "LINKEDIN", value: "linkedin.com/in/shonv", href: "https://www.linkedin.com/in/shonv" },
+  { label: "GITHUB", value: "github.com/wreckingjoker", href: "https://github.com/wreckingjoker" },
   { label: "PHONE", value: "+971 505513554", href: "tel:+971505513554" },
 ];
 
 export default function ContactSection() {
   return (
+    <>
+    <style>{`
+      @media (max-width: 768px) {
+        .contact-link { flex-direction: column !important; align-items: flex-start !important; gap: 4px !important; }
+        .contact-link-value { font-size: 0.75rem !important; word-break: break-all; }
+      }
+    `}</style>
     <section
       data-mode="3d"
       style={{
@@ -53,6 +61,7 @@ export default function ContactSection() {
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+              className="contact-link"
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -77,7 +86,7 @@ export default function ContactSection() {
               <span style={{ fontFamily: "monospace", fontSize: "0.6rem", letterSpacing: "0.25em", color: "var(--accent)", opacity: 0.7 }}>
                 {label}
               </span>
-              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.7)" }}>{value}</span>
+              <span className="contact-link-value" style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.7)" }}>{value}</span>
               <span style={{ color: "var(--accent)", opacity: 0.5, fontSize: "0.8rem" }}>→</span>
             </a>
           ))}
@@ -94,5 +103,6 @@ export default function ContactSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }
