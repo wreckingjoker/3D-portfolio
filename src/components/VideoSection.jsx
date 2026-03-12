@@ -136,7 +136,12 @@ function HorizontalScroller() {
             e.currentTarget.style.boxShadow = "0 8px 32px rgba(255,45,85,0.2)";
             e.currentTarget.style.zIndex = "10";
             const vid = e.currentTarget.querySelector("video");
-            if (vid) vid.play();
+            if (vid) {
+              const playPromise = vid.play();
+              if (playPromise !== undefined) {
+                playPromise.catch(() => {});
+              }
+            }
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = `rotate(${((card.id * 7 + 3) % 9 - 4) * 0.08}deg)`;
@@ -144,7 +149,15 @@ function HorizontalScroller() {
             e.currentTarget.style.boxShadow = "none";
             e.currentTarget.style.zIndex = "";
             const vid = e.currentTarget.querySelector("video");
-            if (vid) { vid.pause(); vid.currentTime = 0; }
+            if (vid) {
+              const playPromise = vid.play();
+              if (playPromise !== undefined) {
+                playPromise.then(() => { vid.pause(); vid.currentTime = 0; }).catch(() => {});
+              } else {
+                vid.pause();
+                vid.currentTime = 0;
+              }
+            }
           }}
         >
           {/* Gradient overlay */}
