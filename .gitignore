@@ -42,3 +42,7 @@ next-env.d.ts
 
 # large video files — host externally
 *.mp4
+/video-creatives/
+/public/video-creatives/*.mp4
+# allow optimized webm files
+!/public/video-creatives/*.webm
