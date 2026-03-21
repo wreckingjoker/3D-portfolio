@@ -15,6 +15,19 @@
     border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ── Light mode CSS variable update ── */
+html[data-theme="light"] {
+  --bg: #f0f2fa;
+}
+
+/* ── Hero visibility by theme ── */
+/* Dark mode (default): show triptych, hide gradient */
+.hero-gradient-root { display: none !important; }
+
+/* Light mode: hide triptych, show gradient */
+html[data-theme="light"] .hero-triptych-root { display: none !important; }
+html[data-theme="light"] .hero-gradient-root  { display: flex !important; }
+
 /* ── Base ── */
 html {
   scroll-behavior: smooth;

@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import NovaGlowOrb from "./NovaGlowOrb";
+
+const AutomationGearIcon = dynamic(() => import("./AutomationGearIcon"), { ssr: false });
+const VideoReelIcon = dynamic(() => import("./VideoReelIcon"), { ssr: false });
+const ThreeDWebIcon = dynamic(() => import("./ThreeDWebIcon"), { ssr: false });
 
 // ── Panel config ───────────────────────────────────────────────────────────────
 const PANELS = [
@@ -114,6 +119,7 @@ export default function HeroTriptych() {
       `}</style>
 
       <section
+        className="hero-triptych-root"
         data-mode="automation"
         style={{ height: "100vh", position: "relative", overflow: "hidden" }}
       >
@@ -132,22 +138,64 @@ export default function HeroTriptych() {
               }}
             >
               {/* Nova Glow Orb — fills the panel */}
-              <div style={{
+              <div className="hero-orb-wrapper" style={{
                 position: "absolute", inset: 0,
                 display: "flex", alignItems: "center", justifyContent: "center",
               }}>
                 <NovaGlowOrb color={p.accent} style={{ width: "100%", height: "100%" }} />
               </div>
 
+              {/* Automation gear icon — left panel only */}
+              {p.id === "left" && (
+                <div style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "45%",
+                  transform: "translate(-50%, -50%)",
+                  zIndex: 10,
+                  pointerEvents: "none",
+                }}>
+                  <AutomationGearIcon />
+                </div>
+              )}
+
+              {/* Video reel icon — center panel only */}
+              {p.id === "center" && (
+                <div style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  zIndex: 10,
+                  pointerEvents: "none",
+                }}>
+                  <VideoReelIcon />
+                </div>
+              )}
+
+              {/* 3D web icon — right panel only */}
+              {p.id === "right" && (
+                <div style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  zIndex: 10,
+                  pointerEvents: "none",
+                }}>
+                  <ThreeDWebIcon />
+                </div>
+              )}
+
               {/* Bottom fade-to-dark */}
-              <div style={{
+              <div className="hero-panel-fade-bottom" style={{
                 position: "absolute", inset: 0,
                 background: "linear-gradient(to top, rgba(5,5,15,0.95) 0%, rgba(5,5,15,0.4) 30%, transparent 60%)",
                 pointerEvents: "none",
               }} />
 
               {/* Top fade */}
-              <div style={{
+              <div className="hero-panel-fade-top" style={{
                 position: "absolute", inset: 0,
                 background: "linear-gradient(to bottom, rgba(5,5,15,0.7) 0%, transparent 22%)",
                 pointerEvents: "none",

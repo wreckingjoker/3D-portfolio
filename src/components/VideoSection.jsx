@@ -18,16 +18,23 @@ const REAL_VIDEOS = [
   { src: "/video-creatives/web-video.webm",         label: "Retail" },
 ];
 
+const POSTERS = [
+  { src: "/video-creatives/greenpest.png",             label: "Pest Control" },
+  { src: "/video-creatives/post williamikanda.png",    label: "Personal Brand" },
+];
+
 const PLACEHOLDER_LABELS = ["Real Estate", "F&B", "Fashion", "Tech", "Retail"];
-const PLACEHOLDER_COUNT = 15;
+const PLACEHOLDER_COUNT = 13;
 
 const CARDS = [
-  ...REAL_VIDEOS.map((v, i) => ({ id: i, ...v, isVideo: true })),
+  ...REAL_VIDEOS.map((v, i) => ({ id: i, ...v, isVideo: true, isPoster: false })),
+  ...POSTERS.map((p, i) => ({ id: REAL_VIDEOS.length + i, ...p, isVideo: false, isPoster: true })),
   ...Array.from({ length: PLACEHOLDER_COUNT }, (_, i) => ({
-    id: i + REAL_VIDEOS.length,
+    id: i + REAL_VIDEOS.length + POSTERS.length,
     label: PLACEHOLDER_LABELS[i % 5],
     num: String(i + 1).padStart(2, "0"),
     isVideo: false,
+    isPoster: false,
   })),
 ];
 
@@ -187,8 +194,23 @@ function HorizontalScroller() {
             />
           )}
 
+          {/* Poster image */}
+          {card.isPoster && (
+            <img
+              src={card.src}
+              alt={card.label}
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+          )}
+
           {/* Noise texture (placeholders only) */}
-          {!card.isVideo && (
+          {!card.isVideo && !card.isPoster && (
             <div style={{
               position: "absolute",
               inset: 0,
@@ -234,7 +256,7 @@ function HorizontalScroller() {
           </div>
 
           {/* Card number (placeholders only) */}
-          {!card.isVideo && (
+          {!card.isVideo && !card.isPoster && (
             <div style={{
               position: "absolute",
               top: "50%",

@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 const FramerEyes = dynamic(() => import("./FramerEyes"), { ssr: false });
+const WebSamplesCarousel = dynamic(() => import("./WebSamplesCarousel"), { ssr: false });
 
 const STACK = [
   { name: "Three.js", desc: "3D rendering engine — geometry, materials, lighting" },
@@ -49,42 +50,17 @@ export default function ThreeDSection() {
           </div>
         </div>
 
-        {/* Two columns */}
-        <div className="threed-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
+        {/* Web samples carousel */}
+        <div style={{ marginBottom: "3rem" }}>
+          <WebSamplesCarousel />
+        </div>
 
-          {/* Left — sample video */}
-          <div style={{
-            border: "1px solid rgba(139,92,246,0.2)",
-            borderRadius: 4,
-            overflow: "hidden",
-            background: "#0A0A0F",
-            position: "relative",
-          }}>
-            <video
-              src="/videos/mango-splash-web.webm"
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
-              style={{
-                width: "100%",
-                display: "block",
-                borderRadius: 4,
-              }}
-            />
-            {/* Accent glow overlay (non-blocking) */}
-            <div style={{
-              position: "absolute",
-              inset: 0,
-              boxShadow: "inset 0 0 40px rgba(139,92,246,0.08)",
-              pointerEvents: "none",
-              borderRadius: 4,
-            }} />
+        {/* Stack */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+          <div style={{ fontFamily: "monospace", fontSize: "0.6rem", letterSpacing: "0.25em", color: "rgba(255,255,255,0.25)", marginBottom: "0.5rem" }}>
+            TOOLS & STACK
           </div>
-
-          {/* Right — stack */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          <div className="threed-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
             {STACK.map((item, i) => (
               <div
                 key={item.name}
@@ -104,8 +80,8 @@ export default function ThreeDSection() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: "0.9rem", color: "#fff", marginBottom: 2 }}>{item.name}</div>
-                  <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.4)", lineHeight: 1.5 }}>{item.desc}</div>
+                  <div style={{ fontWeight: 700, fontSize: "0.85rem", color: "#fff", marginBottom: 2 }}>{item.name}</div>
+                  <div style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", lineHeight: 1.5 }}>{item.desc}</div>
                 </div>
               </div>
             ))}
