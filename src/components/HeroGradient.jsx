@@ -134,7 +134,7 @@ export default function HeroGradient() {
         }
         @media (max-width: 768px) {
           .hero-services { flex-direction: column !important; align-items: center !important; }
-          .hero-gradient-name { font-size: clamp(2.2rem, 11vw, 4rem) !important; }
+          .hero-gradient-name { font-size: clamp(1.8rem, 10vw, 3.5rem) !important; gap: 0 0.2em !important; }
         }
       `}</style>
 
@@ -252,7 +252,7 @@ export default function HeroGradient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
             style={{
-              fontSize: "clamp(3rem, 9vw, 8.5rem)",
+              fontSize: "clamp(2rem, 9vw, 8.5rem)",
               fontWeight: 900,
               margin: 0,
               letterSpacing: "-0.025em",
@@ -261,23 +261,33 @@ export default function HeroGradient() {
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "center",
+              gap: "0 0.25em",
             }}
           >
-            {NAME.split("").map((ch, i) => (
-              <span
-                key={i}
-                className="hero-letter"
-                style={{
-                  color: getLetterColor(i),
-                  textShadow: `0 0 40px rgba(${
-                    i >= 9 ? "139,92,246" : i >= 4 ? "255,45,85" : "0,245,255"
-                  }, 0.35)`,
-                  whiteSpace: "pre",
-                }}
-              >
-                {ch}
-              </span>
-            ))}
+            {NAME.split(" ").map((word, wi) => {
+              const wordStart = NAME.split(" ").slice(0, wi).join(" ").length + (wi > 0 ? 1 : 0);
+              return (
+                <span key={wi} style={{ whiteSpace: "nowrap" }}>
+                  {word.split("").map((ch, li) => {
+                    const i = wordStart + li;
+                    return (
+                      <span
+                        key={li}
+                        className="hero-letter"
+                        style={{
+                          color: getLetterColor(i),
+                          textShadow: `0 0 40px rgba(${
+                            i >= 9 ? "139,92,246" : i >= 4 ? "255,45,85" : "0,245,255"
+                          }, 0.35)`,
+                        }}
+                      >
+                        {ch}
+                      </span>
+                    );
+                  })}
+                </span>
+              );
+            })}
           </motion.h1>
 
           {/* Divider line */}

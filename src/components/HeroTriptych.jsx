@@ -115,6 +115,7 @@ export default function HeroTriptych() {
           .hero-panel  { flex: none !important; height: 33.33vh !important; }
           .hero-subtitle { letter-spacing: 0.1em !important; font-size: 0.5rem !important; }
           .hero-name { font-size: clamp(1.8rem, 9vw, 3rem) !important; }
+          .hero-icon-wrap { left: 50% !important; transform: translate(-50%, -50%) scale(0.5) !important; }
         }
       `}</style>
 
@@ -147,7 +148,7 @@ export default function HeroTriptych() {
 
               {/* Automation gear icon — left panel only */}
               {p.id === "left" && (
-                <div style={{
+                <div className="hero-icon-wrap" style={{
                   position: "absolute",
                   top: "50%",
                   left: "45%",
@@ -161,7 +162,7 @@ export default function HeroTriptych() {
 
               {/* Video reel icon — center panel only */}
               {p.id === "center" && (
-                <div style={{
+                <div className="hero-icon-wrap" style={{
                   position: "absolute",
                   top: "50%",
                   left: "50%",
@@ -175,7 +176,7 @@ export default function HeroTriptych() {
 
               {/* 3D web icon — right panel only */}
               {p.id === "right" && (
-                <div style={{
+                <div className="hero-icon-wrap" style={{
                   position: "absolute",
                   top: "50%",
                   left: "50%",

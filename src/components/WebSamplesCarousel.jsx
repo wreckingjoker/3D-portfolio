@@ -50,15 +50,31 @@ export default function WebSamplesCarousel() {
 
   return (
     <div style={{ width: "100%", perspective: "1000px" }}>
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "4rem",
-        alignItems: "center",
-      }}>
+      <style>{`
+        .carousel-root {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 4rem;
+          align-items: center;
+        }
+        @media (max-width: 768px) {
+          .carousel-root {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+          .carousel-info {
+            min-height: auto !important;
+            padding-top: 0 !important;
+          }
+          .carousel-controls {
+            padding-top: 1.2rem !important;
+          }
+        }
+      `}</style>
+      <div className="carousel-root">
 
         {/* ── Left: stacked cards ── */}
-        <div style={{ position: "relative" }}>
+        <div className="carousel-cards" style={{ position: "relative" }}>
           {/* Stack of cards — render in reverse so active is on top */}
           <div style={{ position: "relative", width: "100%", paddingBottom: "56.25%"/* 16:9 */ }}>
             {[...SAMPLES].reverse().map((s, ri) => {
@@ -142,7 +158,7 @@ export default function WebSamplesCarousel() {
         </div>
 
         {/* ── Right: info panel ── */}
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 300 }}>
+        <div className="carousel-info" style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 300 }}>
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
@@ -224,11 +240,11 @@ export default function WebSamplesCarousel() {
           </AnimatePresence>
 
           {/* Controls */}
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", paddingTop: "2rem" }}>
+          <div className="carousel-controls" style={{ display: "flex", alignItems: "center", gap: "0.75rem", paddingTop: "2rem" }}>
             <button
               onClick={handlePrev}
               style={{
-                width: 34, height: 34, borderRadius: "50%",
+                width: 44, height: 44, borderRadius: "50%",
                 background: "rgba(139,92,246,0.1)",
                 border: "1px solid rgba(139,92,246,0.3)",
                 display: "flex", alignItems: "center", justifyContent: "center",

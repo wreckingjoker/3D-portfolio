@@ -5,7 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const LIGHT_STYLES = `
   /* ── Body & base ── */
-  body { background: #f0f2fa !important; color: #0a0a14 !important; }
+  body {
+    background: #f0f2fa !important;
+    color: #0a0a14 !important;
+    --tooltip-bg: rgba(255,255,255,0.95);
+    --tooltip-color: #0a0a14;
+  }
 
   /* ── All sections by data-mode ── */
   [data-mode="automation"] { background: #f0f2fa !important; }
@@ -30,6 +35,9 @@ const LIGHT_STYLES = `
 
   /* ── ALL text inside sections → dark (overrides every inline rgba/white) ── */
   [data-mode] *            { color: rgba(10,10,20,0.78) !important; }
+
+  /* ── Client logo tooltip — always readable ── */
+  .logo-tooltip-inner      { background: rgba(255,255,255,0.95) !important; color: #0a0a14 !important; }
 
   /* ── Hero gradient name letters — keep accent colors ── */
   .hero-letter             { color: inherit !important; }
@@ -60,6 +68,9 @@ const LIGHT_STYLES = `
   .auto-node-flow          { background: rgba(255,255,255,0.45) !important; border-color: rgba(0,180,200,0.18) !important; box-shadow: 0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9) !important; }
   .auto-node               { background: rgba(255,255,255,0.75) !important; border-color: rgba(0,180,200,0.35) !important; }
   .auto-tool-chip          { background: rgba(255,255,255,0.5) !important; border-color: rgba(0,180,200,0.2) !important; }
+
+  /* ── Node flow SVG connector lines — visible on light bg ── */
+  .auto-node-flow line     { stroke: rgba(0,160,180,0.55) !important; }
 
   /* ── About tags ── */
   .about-tag               { border-color: rgba(0,0,0,0.15) !important; }

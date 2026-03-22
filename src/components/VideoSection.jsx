@@ -21,10 +21,12 @@ const REAL_VIDEOS = [
 const POSTERS = [
   { src: "/video-creatives/greenpest.png",             label: "Pest Control" },
   { src: "/video-creatives/post williamikanda.png",    label: "Personal Brand" },
+  { src: "/video-creatives/vanya citrus.png",          label: "F&B" },
+  { src: "/video-creatives/vanya perfumes.png",        label: "Lifestyle" },
 ];
 
 const PLACEHOLDER_LABELS = ["Real Estate", "F&B", "Fashion", "Tech", "Retail"];
-const PLACEHOLDER_COUNT = 13;
+const PLACEHOLDER_COUNT = 11;
 
 const CARDS = [
   ...REAL_VIDEOS.map((v, i) => ({ id: i, ...v, isVideo: true, isPoster: false })),
@@ -100,6 +102,7 @@ function HorizontalScroller() {
   return (
     <div
       ref={trackRef}
+      className="reel-track"
       style={{
         display: "flex",
         gap: 12,
@@ -119,6 +122,9 @@ function HorizontalScroller() {
         .reel-track::-webkit-scrollbar { display: none; }
         @keyframes livePulse { 0%,100%{opacity:1}50%{opacity:0.2} }
         .reel-card:hover .hover-hint { opacity: 0 !important; }
+        @media (max-width: 640px) {
+          .reel-card { width: 130px !important; }
+        }
       `}</style>
 
       {CARDS.map((card) => (
