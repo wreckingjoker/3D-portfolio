@@ -21,10 +21,18 @@ const SAMPLES = [
     media: "/videos/optimus-prime-3d scroll websie.webm",
     isVideo: true,
   },
+  {
+    title: "Noctis Perfume",
+    type: "3D Product Demo",
+    desc: "Luxury fragrance brand experience with dark cinematic atmosphere, scroll-driven reveal, and immersive 3D product showcase.",
+    tags: ["Three.js", "GSAP", "Claude Code"],
+    media: "/videos/Noctis perfume demo.webm",
+    isVideo: true,
+  },
 ];
 
 // Pre-generate stable rotations so they don't re-randomize on every render
-const ROTATIONS = SAMPLES.map((_, i) => (i % 2 === 0 ? -6 : 7));
+const ROTATIONS = [-6, 7, -5];
 
 export default function WebSamplesCarousel() {
   const [active, setActive] = useState(0);
