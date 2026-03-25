@@ -181,7 +181,7 @@ function ReelScene() {
 
 export default function VideoReelIcon() {
   return (
-    <div style={{ width: 160, height: 160, flexShrink: 0 }}>
+    <div style={{ width: 200, height: 200, flexShrink: 0 }}>
       <Canvas
         style={{ width: "100%", height: "100%", background: "transparent" }}
         camera={{ position: [0, 0, 3.2], fov: 42 }}

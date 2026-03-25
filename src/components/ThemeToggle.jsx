@@ -150,7 +150,7 @@ function Stars() {
 }
 
 export default function ThemeToggle() {
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
     // Inject / remove the light-mode <style> tag

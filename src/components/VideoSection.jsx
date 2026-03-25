@@ -11,22 +11,23 @@ const TOOLS = [
 ];
 
 const REAL_VIDEOS = [
-  { src: "/video-creatives/RICO Chips-web.webm",    label: "F&B" },
-  { src: "/video-creatives/vid-web.webm",           label: "Real Estate" },
-  { src: "/video-creatives/vide2-web.webm",         label: "Fashion" },
-  { src: "/video-creatives/vide3-web.webm",         label: "Tech" },
-  { src: "/video-creatives/web-video.webm",         label: "Retail" },
+  { src: "/video-creatives/RICO Chips-web.webm",        label: "F&B" },
+  { src: "/video-creatives/vid-web.webm",               label: "Real Estate" },
+  { src: "/video-creatives/vide2-web.webm",             label: "Fashion" },
+  { src: "/video-creatives/vide3-web.webm",             label: "Tech" },
+  { src: "/video-creatives/web-video.webm",             label: "Retail" },
+  { src: "/video-creatives/beauty ad video.webm",       label: "Beauty" },
 ];
 
 const POSTERS = [
-  { src: "/video-creatives/greenpest.png",             label: "Pest Control" },
-  { src: "/video-creatives/post williamikanda.png",    label: "Personal Brand" },
   { src: "/video-creatives/vanya citrus.png",          label: "F&B" },
   { src: "/video-creatives/vanya perfumes.png",        label: "Lifestyle" },
+  { src: "/video-creatives/post williamikanda.png",    label: "Personal Brand" },
+  { src: "/video-creatives/greenpest.png",             label: "Pest Control" },
 ];
 
 const PLACEHOLDER_LABELS = ["Real Estate", "F&B", "Fashion", "Tech", "Retail"];
-const PLACEHOLDER_COUNT = 11;
+const PLACEHOLDER_COUNT = 10;
 
 const CARDS = [
   ...REAL_VIDEOS.map((v, i) => ({ id: i, ...v, isVideo: true, isPoster: false })),

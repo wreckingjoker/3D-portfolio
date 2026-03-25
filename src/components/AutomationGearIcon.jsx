@@ -169,7 +169,7 @@ function GearScene() {
 
 export default function AutomationGearIcon() {
   return (
-    <div style={{ width: 160, height: 160, flexShrink: 0 }}>
+    <div style={{ width: 170, height: 170, flexShrink: 0 }}>
       <Canvas
         style={{ width: "100%", height: "100%", background: "transparent" }}
         camera={{ position: [0, 0, 3.2], fov: 42 }}
