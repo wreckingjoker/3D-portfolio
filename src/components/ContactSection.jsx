@@ -4,7 +4,8 @@ const LINKS = [
   { label: "EMAIL", value: "shonvarghesevenad@gmail.com", href: "mailto:shonvarghesevenad@gmail.com" },
   { label: "LINKEDIN", value: "linkedin.com/in/shonv", href: "https://www.linkedin.com/in/shonv" },
   { label: "GITHUB", value: "github.com/wreckingjoker", href: "https://github.com/wreckingjoker" },
-  { label: "PHONE", value: "+971 505513554", href: "tel:+971505513554" },
+  { label: "PHONE (UAE)", value: "+971 505513554", href: "tel:+971505513554" },
+  { label: "PHONE (IN)", value: "+91 9207089517", href: "tel:+919207089517" },
 ];
 
 export default function ContactSection() {
