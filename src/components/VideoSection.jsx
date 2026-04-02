@@ -22,12 +22,15 @@ const REAL_VIDEOS = [
 const POSTERS = [
   { src: "/video-creatives/vanya citrus.png",          label: "F&B" },
   { src: "/video-creatives/vanya perfumes.png",        label: "Lifestyle" },
+  { src: "/video-creatives/beauty eid poster.png",     label: "Beauty" },
+  { src: "/video-creatives/belora-beauty.png",         label: "Beauty" },
+  { src: "/video-creatives/belora-poster.png",         label: "Fashion" },
   { src: "/video-creatives/post williamikanda.png",    label: "Personal Brand" },
   { src: "/video-creatives/greenpest.png",             label: "Pest Control" },
 ];
 
 const PLACEHOLDER_LABELS = ["Real Estate", "F&B", "Fashion", "Tech", "Retail"];
-const PLACEHOLDER_COUNT = 10;
+const PLACEHOLDER_COUNT = 7;
 
 const CARDS = [
   ...REAL_VIDEOS.map((v, i) => ({ id: i, ...v, isVideo: true, isPoster: false })),
