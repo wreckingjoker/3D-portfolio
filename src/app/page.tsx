@@ -4,6 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import AutomationSection from "@/components/AutomationSection";
 import VideoSection from "@/components/VideoSection";
 import ThreeDSection from "@/components/ThreeDSection";
+import WorkExperienceSection from "@/components/WorkExperienceSection";
 import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <AutomationSection />
       <VideoSection />
       <ThreeDSection />
+      <WorkExperienceSection />
       <ContactSection />
     </main>
   );
