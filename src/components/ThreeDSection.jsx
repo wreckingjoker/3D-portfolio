@@ -10,7 +10,6 @@ const STACK = [
   { name: "React Three Fiber", desc: "React renderer for Three.js — declarative 3D" },
   { name: "GSAP ScrollTrigger", desc: "Scroll-driven animations with cinematic precision" },
   { name: "Claude Code", desc: "AI-accelerated development — build at thought-speed" },
-  { name: "Lovable / Bolt", desc: "Rapid prototyping and UI scaffolding" },
 ];
 
 export default function ThreeDSection() {

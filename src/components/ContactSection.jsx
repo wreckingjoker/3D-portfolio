@@ -1,11 +1,13 @@
 "use client";
 
+import { IconMail, IconBrandLinkedin, IconBrandGithub, IconPhone } from "@tabler/icons-react";
+
 const LINKS = [
-  { label: "EMAIL", value: "shonvarghesevenad@gmail.com", href: "mailto:shonvarghesevenad@gmail.com" },
-  { label: "LINKEDIN", value: "linkedin.com/in/shonv", href: "https://www.linkedin.com/in/shonv" },
-  { label: "GITHUB", value: "github.com/wreckingjoker", href: "https://github.com/wreckingjoker" },
-  { label: "PHONE (UAE)", value: "+971 505513554", href: "tel:+971505513554" },
-  { label: "PHONE (IN)", value: "+91 9207089517", href: "tel:+919207089517" },
+  { label: "EMAIL", value: "shonvarghesevenad@gmail.com", href: "mailto:shonvarghesevenad@gmail.com", icon: IconMail },
+  { label: "LINKEDIN", value: "linkedin.com/in/shonv", href: "https://www.linkedin.com/in/shonv", icon: IconBrandLinkedin },
+  { label: "GITHUB", value: "github.com/wreckingjoker", href: "https://github.com/wreckingjoker", icon: IconBrandGithub },
+  { label: "PHONE (UAE)", value: "+971 505513554", href: "tel:+971505513554", icon: IconPhone },
+  { label: "PHONE (IN)", value: "+91 9207089517", href: "tel:+919207089517", icon: IconPhone },
 ];
 
 export default function ContactSection() {
@@ -56,7 +58,7 @@ export default function ContactSection() {
 
         {/* Contact links */}
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "3rem" }}>
-          {LINKS.map(({ label, value, href }) => (
+          {LINKS.map(({ label, value, href, icon: Icon }) => (
             <a
               key={label}
               href={href}
@@ -84,9 +86,12 @@ export default function ContactSection() {
                 e.currentTarget.style.background = "rgba(139,92,246,0.03)";
               }}
             >
-              <span style={{ fontFamily: "monospace", fontSize: "0.6rem", letterSpacing: "0.25em", color: "var(--accent)", opacity: 0.7 }}>
-                {label}
-              </span>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <Icon size={16} style={{ color: "var(--accent)", opacity: 0.8, flexShrink: 0 }} />
+                <span style={{ fontFamily: "monospace", fontSize: "0.6rem", letterSpacing: "0.25em", color: "var(--accent)", opacity: 0.7 }}>
+                  {label}
+                </span>
+              </div>
               <span className="contact-link-value" style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.7)" }}>{value}</span>
               <span style={{ color: "var(--accent)", opacity: 0.5, fontSize: "0.8rem" }}>→</span>
             </a>

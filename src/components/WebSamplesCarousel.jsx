@@ -29,10 +29,18 @@ const SAMPLES = [
     media: "/videos/Noctis perfume demo.webm",
     isVideo: true,
   },
+  {
+    title: "Visual Pulse",
+    type: "3D Scroll Website",
+    desc: "Dynamic scroll-driven website with kinetic typography, fluid motion design, and immersive visual storytelling built for maximum impact.",
+    tags: ["Three.js", "GSAP", "Claude Code"],
+    media: "/video-creatives/visual-pulse website.webm",
+    isVideo: true,
+  },
 ];
 
 // Pre-generate stable rotations so they don't re-randomize on every render
-const ROTATIONS = [-6, 7, -5];
+const ROTATIONS = [-6, 7, -5, 8];
 
 export default function WebSamplesCarousel() {
   const [active, setActive] = useState(0);
